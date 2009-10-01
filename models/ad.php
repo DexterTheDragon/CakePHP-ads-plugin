@@ -18,14 +18,16 @@ class Ad extends AdsAppModel {
         'Ads.AdPosition',
     );
 
-    function pullAd($position_id) {
+    function pullAd($position_id, $random = false) {
+        $order = 'created';
+        if ( $random ) $order = 'RAND()';
         $ad = $this->find('first', array(
             'conditions' => array(
                 'ad_position_id' => $position_id,
                 'active' => 1,
                 'NOW() BETWEEN Ad.start_date AND Ad.end_date',
             ),
-            'order' => 'created'
+            'order' => $order,
         ));
         return $ad;
     }

@@ -8,8 +8,9 @@ class AdsController extends AdsAppController {
         $this->Auth->allow('get');
     }
 
-    function get($id) {
-        $this->data = $this->Ad->pullAd($id);
+    function get($id, $random = false) {
+        $random = (bool)$random;
+        $this->data = $this->Ad->pullAd($id, $random);
 
         if (isset($this->params['requested'])) {
             return $this->data;
