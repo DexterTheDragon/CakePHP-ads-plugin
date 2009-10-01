@@ -1,5 +1,5 @@
 <?php
-class AdHelper extends AppHelper {
+class AdhelperHelper extends AppHelper {
 
     var $helpers = array('Html');
 

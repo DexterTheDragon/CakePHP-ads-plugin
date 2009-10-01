@@ -9,12 +9,8 @@ class Ad extends AdsAppModel {
     );
 
     var $actsAs = array(
-        'Image' => array(
-            'fields' => array(
-                'src' => array(
-                    'resize' => false,
-                ),
-            ),
+        'UploadPack.Upload' => array(
+            'image' => array(),
         ),
     );
 
